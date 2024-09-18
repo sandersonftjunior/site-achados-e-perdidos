@@ -16,12 +16,36 @@
       <span>Itens Achados</span>
       <button onclick="openModal()" id="new">Incluir</i></button>
     </div>
+
+    <div id="searchCamp">
+
+      <div class="search">
+        <label for="searchBarr">
+          <i class='bx bx-search'></i>
+        </label>
+        <input type="text" id="searchBar" placeholder="Pesquisar" onkeyup="searchItems()">
+
+      </div>
+      <div class="search">
+        <input type="date" id="searchDate" placeholder="Pesquisar por data..." onchange="searchItems()">
+      </div>
+
+      <div class="search">
+        <input type="month" id="searchMonth" placeholder="Mês" onchange="searchItems()">
+      </div>
+
+      <div class="search">
+        <input type="number" id="searchYear" placeholder="Ano" min="1900" max="2100" onchange="searchItems()">
+      </div>
+
+    </div>
+    
     
     <div class="divTable">
       <table>
         <thead>
           <tr>
-            <th>Item</th>
+            <th class="searchNome">Item</th>
             <th>Descrição</th>
             <th>Data</th>
             <th class="acao">Editar</th>

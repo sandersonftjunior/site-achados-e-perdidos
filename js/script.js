@@ -8,6 +8,67 @@ const btnSalvar = document.querySelector('#btnSalvar')
 let itens
 let id
 
+// Capturar o campo de busca
+const searchBar = document.querySelector('#searchBar');
+
+// Função para pesquisar e filtrar itens
+function searchItems() {
+  const searchTerm = searchBar.value.toLowerCase(); // Capturar o valor digitado e converter para minúsculas
+  tbody.innerHTML = ''; // Limpar a tabela antes de exibir os itens filtrados
+
+  // Filtrar itens que começam ou contêm o termo de pesquisa
+  const filteredItems = itens.filter(item => {
+    const itemName = item.nome.toLowerCase();
+    return itemName.startsWith(searchTerm) || itemName.includes(searchTerm);
+  });
+
+  // Recarregar a tabela com os itens filtrados
+  filteredItems.forEach((item, index) => {
+    insertItem(item, index);
+  });
+}
+
+// Capturar os campos de busca de data completa, mês e ano
+const searchDate = document.querySelector('#searchDate');
+const searchMonth = document.querySelector('#searchMonth');
+const searchYear = document.querySelector('#searchYear');
+
+function searchItems() {
+  const searchTerm = searchBar.value.toLowerCase(); // Valor do nome
+  const searchDateValue = searchDate.value; // Valor do dia/mês/ano no formato YYYY-MM-DD
+  const searchMonthValue = searchMonth.value; // Valor do mês/ano no formato YYYY-MM
+  const searchYearValue = searchYear.value; // Valor do ano no formato YYYY
+
+  tbody.innerHTML = ''; // Limpar a tabela antes de exibir os itens filtrados
+
+  // Filtrar itens que começam ou contêm o termo de pesquisa, e verificar as datas
+  const filteredItems = itens.filter(item => {
+    const itemName = item.nome.toLowerCase();
+    const itemDate = item.data || ''; // Garantir que a data exista
+
+    // Extrair o ano, mês e dia do item, se a data estiver disponível
+    const [itemYear, itemMonth, itemDay] = itemDate.split('-');
+
+    // Verifica se o nome corresponde
+    const matchesName = itemName.startsWith(searchTerm) || itemName.includes(searchTerm);
+
+    // Verificar se a data corresponde:
+    const matchesDate = searchDateValue ? itemDate === searchDateValue : true; // Se o dia/mês/ano for fornecido, deve corresponder
+    const matchesMonth = searchMonthValue ? `${itemYear}-${itemMonth}` === searchMonthValue : true; // Se o mês/ano for fornecido, deve corresponder
+    const matchesYear = searchYearValue ? itemYear === searchYearValue : true; // Se o ano for fornecido, deve corresponder
+
+    // Retornar true se todas as condições forem satisfeitas
+    return matchesName && matchesDate && matchesMonth && matchesYear;
+  });
+
+  // Recarregar a tabela com os itens filtrados
+  filteredItems.forEach((item, index) => {
+    insertItem(item, index);
+  });
+}
+
+
+
 function openModal(edit = false, index = 0) {
   modal.classList.add('active')
 

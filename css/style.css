@@ -28,6 +28,29 @@ button {
   background: white;
 }
 
+#searchCamp{
+  display: flex;
+  flex-direction: row;
+}
+
+.search {
+  margin-left: 10px;
+  display: flex;
+  background-color: #F5F5F5;
+  color: #4b4b4b;
+  padding: 10px;
+  border-radius: 10px;
+  width: 20%;
+}
+
+.search Input{
+  padding: 2px;
+  border: none;
+  background-color: transparent;
+  width: 100%;
+  outline: none;
+}
+
 .header {
   min-height: 70px;
   display: flex;
