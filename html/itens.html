@@ -1,80 +1,42 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Itens achados e perdidos</title>
-  <link rel="stylesheet" href="../css/style-itens.css">
-  <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Achados e perdidos</title>
+    <link rel="stylesheet" href="../css/style-itens.css">
 </head>
-
 <body>
-  <div class="container">
-    <div class="header">
-      <span>Itens Achados</span>
-      <button onclick="openModal()" id="new">Incluir</i></button>
+    <div id="container">
+        <div id="header">
+            <h1>Itens</h1>
+            <Span><button id="showForm" onclick="callForm()" class="button">Adicionar</button></Span>
+        </div>
+        <div id="divTable">
+            <table>
+                <tr>
+                    <th>Item</th>
+                    <th>Descrição</th>
+                    <th>Data</th>
+                    <th>Editar</th>
+                    <th>Excluir</th>
+                </tr>
+            </table>
+        </div>
+        <div class="divForm">
+            <form>
+                <label for="item">Item</label>
+                <input id="item" type="text" required />
+        
+                <label for="descrição">Descrição</label>
+                <input id="descrição" type="text" required />
+        
+                <label for="data">Data</label>
+                <input id="data" type="date" required />
+                <button id="btnSalvar">Salvar</button>
+              </form>
+        </div>    
     </div>
-
-    <div id="searchCamp">
-
-      <div class="search">
-        <label for="searchBar">
-          <i class='bx bx-search'></i>
-        </label>
-        <input type="text" id="searchBar" placeholder="Pesquisar" onkeyup="searchItems()">
-
-      </div>
-      <div class="search">
-        <input type="date" id="searchDate" placeholder="Pesquisar por data..." onchange="searchItems()">
-      </div>
-
-      <div class="search">
-        <input type="month" id="searchMonth" placeholder="Mês" onchange="searchItems()">
-      </div>
-
-      <div class="search">
-        <input type="number" id="searchYear" placeholder="Ano" min="1900" max="2030" onchange="searchItems()">
-      </div>
-
-    </div>
-    
-    
-    <div class="divTable">
-      <table>
-        <thead>
-          <tr>
-            <th class="searchNome">Item</th>
-            <th>Descrição</th>
-            <th>Data</th>
-            <th class="acao">Editar</th>
-            <th class="acao">Excluir</th>
-          </tr>
-        </thead>
-        <tbody>
-        </tbody>
-      </table>
-    </div>
-
-    <div class="modal-container">
-      <div class="modal">
-        <form>
-          <label for="m-nome">item</label>
-          <input id="m-nome" type="text" required />
-  
-          <label for="m-descricao">Descrição</label>
-          <input id="m-descricao" type="text" required />
-  
-          <label for="m-data">Data</label>
-          <input id="m-data" type="date" required />
-          <button id="btnSalvar">Salvar</button>
-        </form>
-      </div>
-    </div>
-
-  </div>
-  <script src="../js/script-itens.js"></script>
+    <script src="../js/script-itens.js"></script>
 </body>
-
 </html>
