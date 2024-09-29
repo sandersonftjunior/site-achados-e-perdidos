@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Itens achados e perdidos</title>
+  <link rel="stylesheet" href="../css/style-itens.css">
+  <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+</head>
+
+<body>
+  <div class="container">
+    <div class="header">
+      <span>Itens Achados</span>
+    </div>
+
+    <div id="searchCamp">
+
+      <div class="search">
+        <label for="searchBarr">
+          <i class='bx bx-search'></i>
+        </label>
+        <input type="text" id="searchBar" placeholder="Pesquisar" onkeyup="searchItems()">
+
+      </div>
+      <div class="search">
+        <input type="date" id="searchDate" placeholder="Pesquisar por data..." onchange="searchItems()">
+      </div>
+
+      <div class="search">
+        <input type="month" id="searchMonth" placeholder="Mês" onchange="searchItems()">
+      </div>
+
+      <div class="search">
+        <input type="number" id="searchYear" placeholder="Ano" min="1900" max="2100" onchange="searchItems()">
+      </div>
+
+    </div>
+    
+    
+    <div class="divTable">
+      <table>
+        <thead>
+          <tr>
+            <th class="searchNome">Item</th>
+            <th>Descrição</th>
+            <th>Data</th>
+            <th>Econtrou </th>
+          </tr>
+        </thead>
+        <tbody>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="modal-container" id="modalAchei">
+        <div class="modal">
+          <form action="pagina_de_destino.html" method="POST">
+            <label for="nome-achei">Nome</label>
+            <input id="nome-achei" name="nome" type="text" required />
+      
+            <label for="turma-achei">Turma</label>
+            <input id="turma-achei" name="turma" type="text" maxlength="8" required />
+      
+            <label for="turno-achei">Turno</label>
+            <select id="turno-achei" name="turno" required>
+              <option value="">Selecione o turno</option>
+              <option value="Matutino/Manhã">Matutino/Manhã</option>
+              <option value="Vespertino/Tarde">Vespertino/Tarde</option>
+            </select>
+      
+            <input type="hidden" id="item-nome" name="item_nome">
+            <input type="hidden" id="item-descricao" name="item_descricao">
+            <input type="hidden" id="item-data" name="item_data">
+      
+            <button type="submit">Enviar</button>
+          </form>
+        </div>
+      </div>
+
+  </div>
+  <script src="../js/script-estudante.js"></script>
+</body>
+
+</html>
